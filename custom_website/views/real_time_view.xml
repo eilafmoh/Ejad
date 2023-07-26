@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <template id="real_time_view" name="Products">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Real Time ROP View</t>
+            <div id="wrap" >
+                <div class="oe_structure oe_empty"/>
+                <div class="container oe_website_sale ">
+                    <section class="container">
+                        <h3>ROP Products </h3>
+                        <table class="table table-bordered table-hoveer text-center m16 table-comperator">
+                            <thead>
+                                <t t-if="products">
+                                    <tr t-foreach="products" t-as="product">
+                                      <td  class="o_ws_compare_image position-relative border-bottom-0">
+                                        <a t-att-href="product.website_url" class="d-block h-100" itemprop="url">
+                                            <t t-set="image_holder" t-value="product._get_image_holder()"/>
+                                            <span t-field="image_holder.image_1920"
+                                                t-options="{'widget': 'image', 'preview_image': 'image_1920' if product_image_big else 'image_256', 'itemprop': 'image'}"
+                                                class="d-flex h-100 justify-content-center align-items-center"/>
+                                        </a>
+                                      </td> 
+                                      <td  class="border-top-0">
+                                            <div class="product-summary">
+                                                <a t-att-href="product.website_url">
+                                                    <span t-esc="product.name"/>
+                                                </a>
+                                                <p><span t-esc="product.qty_available"/></p>
+                                                
+                                                
+                                                
+                                            </div>
+
+
+                                         </td> 
+
+                                    </tr>
+                                
+                                </t>
+                                <t t-else="">
+                                    <div class="text-center text-muted">
+                                        <t t-if="not search">
+                                            <h3 class="mt8">No product with quantity more than 5 </h3>
+                                        </t>
+                                    </div>
+                                </t>
+                            </thead>
+
+
+                        </table>
+
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+
+
+  </data>
+</odoo>

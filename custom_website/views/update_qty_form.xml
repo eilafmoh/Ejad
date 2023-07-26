@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="update_qty_popup">
+
+  <div class="modal-dialog" role="document">
+        <div class="modal-content">
+      <section >
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="o_colored_level wrapper-section-demo " data-original-title="" title="" aria-describedby="tooltip486570">
+  
+              
+              <section class="s_website_form " data-vcss="001" data-snippet="s_website_form" data-name="Form" style="padding-bottom: 65px;padding-top: 16px;">
+               
+                <div class="container">
+                  <br/>                
+                  <form id="update-qty-form" style="margin-left: 25px;">
+                     <h2 style="padding-left: 13px;">
+                        <strong>
+                          <font>Update Product Quantity</font>
+                          <br/>
+                        </strong>
+                        <br/>
+                      </h2>
+                    <div class="s_website_form_rows row s_col_no_bgcolor pb100" data-original-title="" title="" aria-describedby="tooltip477798">
+                    
+                      </div>
+                     
+                      <div data-visibility-condition="" data-visibility-between="" class="form-group s_website_form_field col-12 s_website_form_model_required" data-type="char" data-name="Field">
+                        <label class="s_website_form_label " style="width: 200px;color:white" for="ofzczgfrrv">
+                          <span class="s_website_form_label_content" >Quantity</span>
+                        </label>
+                        <input type="number" class="form-control s_website_form_input placeholde-color" name="qty"  id="ofzczgfrrv"/>
+                      </div>
+                    <br/>
+           
+                         <div class="form-group col-12 s_website_form_submit col-lg-8" data-name="Submit Button" data-original-title="" title="" aria-describedby="tooltip643001"><br/>
+                         <a class="btn btn-primary" id="update-qty">
+                                    <span>Update Qty</span>
+                                    <i class="fa fa-fw fa-arrow-right"/>
+                                </a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                  </form>
+                    <div class=" o_colored_level rcc-wrapper-thanks-container" id="rcc-wrapper-thanks-container" data-original-title="" title="" aria-describedby="tooltip486570">
+                      
+                        <div class="d-flex justify-content-center align-items-center flex-column pb203">
+
+                                <div class="icon-right"></div>
+                                            <p>The Quantity Updated Succesfully</p>
+                        </div>
+                     
+                      
+                    </div>
+                 
+                </div>
+              </section>
+             
+
+
+
+
+            </div>
+           
+          </div>
+        </div>
+      </section>
+</div>
+</div>
+</template>
+</odoo>

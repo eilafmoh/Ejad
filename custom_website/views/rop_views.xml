@@ -1,0 +1,136 @@
+<odoo>
+  <data>
+    <template id="rop_view" name="Products">
+        <t t-call="website.layout">
+            <t t-set="additional_title">ROP View</t>
+            <div id="wrap" >
+                <div class="oe_structure oe_empty"/>
+                <div class="container oe_website_sale ">
+                    <section class="container">
+                        <h3>ROP Products</h3>
+                        <table class="table table-bordered table-hoveer text-center m16 table-comperator">
+                            <thead>
+                                <t t-if="products">
+                                    <tr t-foreach="products" t-as="product">
+                                      <td  class="o_ws_compare_image position-relative border-bottom-0">
+                                        <a t-att-href="product.website_url" class="d-block h-100" itemprop="url">
+                                            <t t-set="image_holder" t-value="product._get_image_holder()"/>
+                                            <span t-field="image_holder.image_1920"
+                                                t-options="{'widget': 'image', 'preview_image': 'image_1920' if product_image_big else 'image_256', 'itemprop': 'image'}"
+                                                class="d-flex h-100 justify-content-center align-items-center"/>
+                                        </a>
+                                      </td> 
+                                      <td  class="border-top-0">
+                                            <div class="product-summary">
+                                                <a t-att-href="product.website_url">
+                                                    <span t-esc="product.name"/>
+                                                </a>
+                                                <p><span t-esc="product.qty_available"/></p>
+                                                
+                                                
+                                                <button  id="hidden_box_btn"  class="mb-2 btn btn-primary"  data-toggle="modal" data-target="#hidden_box" data-whatever="#ss">Update Product Quantity</button>
+                                                <div   id="hidden_box" class="modal fade "  role="dialog" aria-labelledby="UpdateQty" aria-hidden="true">
+                                                        
+                                                    <!-- <t t-call="custom_website.update_qty_popup"/> -->
+                                                      <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                          <section >
+                                                            <div class="container">
+                                                              <div class="row align-items-center">
+                                                                <div class="o_colored_level wrapper-section-demo " data-original-title="" title="" aria-describedby="tooltip486570">
+                                                      
+                                                                  
+                                                                  <section class="s_website_form " data-vcss="001" data-snippet="s_website_form" data-name="Form" style="padding-bottom: 65px;padding-top: 16px;">
+                                                                   
+                                                                    <div class="container">
+                                                                      <br/>                
+                                                                      <form id="update-qty-form" style="margin-left: 25px;">
+                                                                         <input type="hidden" name="product" t-att-value="product.id" />
+                                                                         <h2 style="padding-left: 13px;">
+                                                                            <strong>
+                                                                              <font>Update Quantity for <span t-esc="product.name"/> </font>
+                                                                              <br/>
+
+                                                                            </strong>
+                                                                            <br/>
+                                                                          </h2>
+                                                                        <div class="s_website_form_rows row s_col_no_bgcolor pb100" data-original-title="" title="" aria-describedby="tooltip477798">
+                                                                        
+                                                                          </div>
+                                                                         
+                                                                          <div data-visibility-condition="" data-visibility-between="" class="form-group s_website_form_field col-12 s_website_form_model_required" data-type="char" data-name="Field">
+                                                                            <label class="s_website_form_label " style="width: 200px;color:white" for="ofzczgfrrv">
+                                                                              <span class="s_website_form_label_content" >Quantity</span>
+                                                                            </label>
+                                                                            <input type="number" class="form-control s_website_form_input placeholde-color" name="qty"  id="ofzczgfrrv"/>
+                                                                          </div>
+                                                                        <br/>
+                                                               
+                                                                             <div class="form-group col-12 s_website_form_submit col-lg-8" data-name="Submit Button" data-original-title="" title="" aria-describedby="tooltip643001"><br/>
+                                                                             <a class="btn btn-primary" id="update-qty">
+                                                                                        <span>Update Qty</span>
+                                                                                        <i class="fa fa-fw fa-arrow-right"/>
+                                                                                    </a>
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                  </div>
+                                                                      </form>
+                                                                        <div class=" o_colored_level rcc-wrapper-thanks-container" id="rcc-wrapper-thanks-container" data-original-title="" title="" aria-describedby="tooltip486570">
+                                                                          
+                                                                            <div class="d-flex justify-content-center align-items-center flex-column pb203">
+
+                                                                                    <div class="icon-right"></div>
+                                                                                                <p>The Quantity Updated Succesfully</p>
+                                                                            </div>
+                                                                         
+                                                                          
+                                                                        </div>
+                                                                     
+                                                                    </div>
+                                                                  </section>
+                                                                 
+
+
+
+
+                                                                </div>
+                                                               
+                                                              </div>
+                                                            </div>
+                                                          </section>
+                                                    </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                         </td> 
+
+                                    </tr>
+                                
+                                </t>
+                                 <t t-if="not products">
+                                    <div class="text-center text-muted">
+                                        <t t-if="not search">
+                                            <h3 class="mt8">No product with quantity less than 5 </h3>
+                                        </t>
+                                    </div>
+                                </t>
+
+                            </thead>
+
+
+                        </table>
+
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+
+
+
+  </data>
+</odoo>
