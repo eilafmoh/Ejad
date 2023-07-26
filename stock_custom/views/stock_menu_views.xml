@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="rop_menu_root"
+        name="ROP"
+        parent="stock.menu_stock_inventory_control"
+        sequence="5"/>
+
+    <menuitem
+        id="rop_products_menu"
+        name="ROP Products"
+        parent="rop_menu_root"
+        action="stock_custom.product_template_action_rop"
+        sequence="1"/>
+
+    <menuitem
+        id="rop_menu"
+        name="Products > ROP"
+        parent="rop_menu_root"
+        action="stock_custom.product_template_action_rop"
+        sequence="2"/>
+
+</odoo>

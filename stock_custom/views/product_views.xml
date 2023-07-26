@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="product_template_form_view_rop" model="ir.ui.view">
+        <field name="name">product.template.form.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="inside">
+                <br/>
+                <span class="d-inline-block">
+                    <field name="has_rop"/>
+                    <label for="has_rop"/>
+                </span>
+            </xpath>
+
+            <xpath expr="//field[@name='product_tooltip']" position="after">
+                <field name="rop_count" attrs="{'invisible':[('has_rop','!=',True)]}"/>
+            </xpath>
+
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" type="object" name="get_count" icon="fa-bars" attrs="{'invisible':[('has_rop','!=',True)]}">
+                    <field string="ROP" name="count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record id="product_template_action_rop" model="ir.actions.act_window">
+        <field name="name">ROP Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="search_view_id" ref="stock.product_template_search_form_view_stock"/>
+        <field name="context">{'default_has_rop': 'product'}</field>
+        <field name="domain">[('has_rop','=',True)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No ROP product found. Let's create one!
+            </p>
+        </field>
+    </record>
+</odoo>
